@@ -1,0 +1,39 @@
+
+#navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DBDDF0;
+}
+#navBar li a{
+    text-decoration: none;
+}
+
+li {
+    float: right;
+}
+
+li:hover {
+    border-bottom: 5px solid #6673F0;
+}
+
+
+li a {
+    display: block;
+    color:  black;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+
+#active {
+    background-color: #4CAF50;
+}
+
+#logo{
+	position: absolute;
+	float: left;
+	padding-left: 5px;
+}
