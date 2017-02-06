@@ -16,11 +16,29 @@ app.controller("homeController", function indexController($scope){
 })
  
 
-app.controller("registroController", function homeController($scope, $location){
-	$scope.saludo = "Hola desde el controlador home";
-	$scope.toLogin = function(){
-		$location.url("/login");
+app.controller("registroController", function ($scope){
+	$scope.msg="bla";
+	function validar(){
+
+		var correcto = true;
+
+		if(document.getElementById('nombre').value.length < 2 ){
+	    	correcto = false;
+		}
+
+		var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+		var email = document.form1.email.value;
+		if (!expresion.test(email)){
+	    	correcto = false;
+		}
+
+		if(!correcto){
+			alert('Algunos campos no están correctos, vuelva a revisarlos');
+		}
+
+		return correcto;
 	}
+
 });
  
 app.controller("loginController", function loginController($scope, $location){

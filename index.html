@@ -16,15 +16,17 @@
         <script src="js/app.js"></script>
         <script type="text/javascript" src="js/controllers.js"></script>
 
-<img id="logo" src="images/spal.png" height="60px">
-<ul id="navBar">
-  <li><a href="#home">Contáctanos</a></li>
-  <li><a class="navOpcion" href="#news">Ingresa</a></li>
-  <li><a class="navOpcion" href="#contact">Regístrate</a></li>
-  <li><a class="navOpcion" href="#contact">Juega</a></li>
+        <!--barra de navegacion-->
 
-</ul>
+		<img id="logo" src="images/spal.png" height="60px">
+		<ul id="navBar">
+		  <li id="op" ><a href="#!/contacto">Contáctanos</a></li>
+		  <li id="op" ><a class="navOpcion" href="#!/ingreso">Ingresa</a></li>
+		  <li id="op" ><a class="navOpcion" href="#!/registro">Regístrate</a></li>
+		  <li id="op"><a class="navOpcion" href="#!/juego">Juega</a></li>
 
-<div ng-view></div>
+		</ul>
+
+	<div ng-view></div>
 	</body>
 </html>

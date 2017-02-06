@@ -1,21 +1,25 @@
+body {
+    background-color: #98DBC6;
+}
 
 #navBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #DBDDF0;
+    background-color: #5EB4C5;
 }
+
 #navBar li a{
     text-decoration: none;
 }
 
-li {
+#op {
     float: right;
 }
 
-li:hover {
-    border-bottom: 5px solid #6673F0;
+ li:hover {
+    border-bottom: 5px solid #E6D72A;
 }
 
 
@@ -37,3 +41,25 @@ li a {
 	float: left;
 	padding-left: 5px;
 }
+
+#num{
+    text-decoration: none;
+}
+
+legend{
+    font-size: 30px;
+    text-align: center;
+}
+
+.wrapper{
+  width: 60%;
+  margin: 0 auto;
+}
+.rectangle-box{
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    background: #5EB4C5;
+}
+
+
