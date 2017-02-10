@@ -10,5 +10,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/registro.html",
 		controller : "registroController"
 	})
+	.when("/ingreso", {
+		templateUrl : "templates/ingreso.html",
+		controller : "ingresoController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })

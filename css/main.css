@@ -47,7 +47,7 @@ h2 span {
 	margin-top: 1rem;
 }
 
-.input, .btn__submit, .btn__reset{
+.input, .btn__submit, .btn__reset, .btn__registro{
 	background-color: #EFEFEF;
 	padding: .5rem;
 	margin: .5rem 0;
@@ -60,7 +60,7 @@ h2 span {
 	border-bottom: solid #F39B53 .2rem;
 }
 
-.btn__submit, .btn__reset {
+.btn__submit, .btn__reset, .btn__registro {
 	width: 40%;
 	border-bottom: none;
 	background-color: #4897D8;
@@ -71,10 +71,18 @@ h2 span {
 	background-color: #EDA135;
 }
 
+.btn__registro {
+	background-color: #EDA135;
+}
+
 .btn__submit:hover {
 	background-color: #4396db;
 }
 
 .btn__reset:hover{
 	background-color: #FA9535;
+}
+
+a{
+	color: blue;
 }

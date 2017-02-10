@@ -41,9 +41,7 @@ app.controller("registroController", function ($scope){
 
 });
  
-app.controller("loginController", function loginController($scope, $location){
+app.controller("ingresoController", function ingresoController($scope, $location){
 	$scope.saludo = "Hola desde el controlador login";
-	$scope.toHome = function(){
-		$location.url("/home");
-	}
+	
 })
