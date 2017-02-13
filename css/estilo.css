@@ -1,5 +1,5 @@
 body {
-    background-color: #9AD1ED;
+    background-color: #DEEBF7;
 }
 
 #navBar {
@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #5EB4C5;
+    background-color: #9AD1ED;
 }
 
 #navBar li a{
@@ -15,11 +15,7 @@ body {
 }
 
 #op {
-    float: right;
-}
-
- li:hover {
-    border-bottom: 5px solid #E6D72A;
+    float: right; 
 }
 
 
@@ -28,9 +24,14 @@ li a {
     color:  black;
     text-align: center;
     padding: 20px 16px;
-    text-decoration: none;
+    text-decoration: none; 
+    list-style: none;
+    border-bottom: 5px solid transparent;
 }
 
+li a:hover {
+    border-bottom: 5px solid #8496E4;
+}
 
 #active {
     background-color: #4CAF50;
@@ -50,16 +51,3 @@ legend{
     font-size: 30px;
     text-align: center;
 }
-
-.wrapper{
-  width: 60%;
-  margin: 0 auto;
-}
-.rectangle-box{
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-    background: #5EB4C5;
-}
-
-

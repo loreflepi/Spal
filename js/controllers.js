@@ -15,33 +15,23 @@ app.controller("homeController", function indexController($scope){
 	]
 })
  
-
-app.controller("registroController", function ($scope){
-	$scope.msg="bla";
-	function validar(){
-
-		var correcto = true;
-
-		if(document.getElementById('nombre').value.length < 2 ){
-	    	correcto = false;
-		}
-
-		var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
-		var email = document.form1.email.value;
-		if (!expresion.test(email)){
-	    	correcto = false;
-		}
-
-		if(!correcto){
-			alert('Algunos campos no están correctos, vuelva a revisarlos');
-		}
-
-		return correcto;
-	}
-
-});
+ 
+app.controller("registroController", function($scope){
+	$scope.enviar=function() {
+  if ($scope.miFormulario.$valid) {
+    alert("Los datos aqui se habrían enviado al servidor  y estarían validados en la parte cliente");
+  }else {
+    alert("Hay datos inválidos");
+  }
+}
+})
  
 app.controller("ingresoController", function ingresoController($scope, $location){
+	$scope.saludo = "Hola desde el controlador login";
+	
+})
+
+app.controller("contactoController", function contactoController($scope, $location){
 	$scope.saludo = "Hola desde el controlador login";
 	
 })

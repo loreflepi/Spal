@@ -4,13 +4,13 @@ html {
 }
 
 body {
-	background-color: #9AD1ED;
+	background-color: #DEEBF7;
 }
 
 .container {
 	max-width: 450px;
 	height: auto;
-	background-color: #5EB4C5;
+	background-color: #A4D5EE;
 	margin: 5% auto;
 	padding-bottom: 1rem;
 	
@@ -20,7 +20,7 @@ body {
 	width: 100%;
 	text-align: center;
 	padding: 2rem 0 1rem;
-	border-top: solid .4rem #E6D72A;
+	border-top: solid .4rem #8496E4;
 	margin-bottom: 1rem;
 }
 
@@ -52,12 +52,12 @@ h2 span {
 	padding: .5rem;
 	margin: .5rem 0;
 	border: none;
-	border-bottom: solid #E6D72A .2rem;
+	border-bottom: solid #8496E4 .2rem;
 	transition: all .5s;
 }
 
 .input:focus {
-	border-bottom: solid #F39B53 .2rem;
+	border-bottom: solid #5E6CA4 .2rem;
 }
 
 .btn__submit, .btn__reset, .btn__registro {

@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Questrial', sans-serif;
+}
+
+hr{
+  border-bottom: 5px solid #6978B6;
+  border-spacing: none;
+}
+
+h2{
+  font-size: 65px;
+  text-align: center;
+  font-family: 'Questrial', sans-serif;
+}
+
+p {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 25px;
+  font-family: 'Questrial', sans-serif;
+}
+body{
+  background-image: url("/images/header.jpg");
+  background-repeat: no-repeat;
+}

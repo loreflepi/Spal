@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html ng-app="app">	
 	<body>
-        <!--registro-->
+        <!--ingreso-->
         <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-	<link rel="stylesheet" href="css/main.css">
-	<title>Formulario</title>
+	<link rel="stylesheet" href="css/contacto.css">
+	<title>Contacto</title>
 </head>
 <body>
 
-	<div class="container" ng-controller="registroController">
+	<div class="container">
 		<div class="form__top">
-			<h2>Formulario <span>Registro</span></h2>
+			<h2>Contáctanos</h2>
 		</div>		
 		<form class="form__reg" action="">
-			<input class="input" type="text" placeholder="Nombre" required autofocus>
             <input class="input" type="email" placeholder="Email" required>
             <input class="input" type="text" placeholder="Contaseña" required>
-            <input class="input" type="text" placeholder="Colegio" required>
-            <!---"ng-click="mostrarNotificacion()""-->
+            <textarea class="text" type="text" name="message" placeholder="Mensaje"></textarea><br />
             <div class="btn__form">
-            	 
-            	<input class="btn__submit" type="submit" ng-click="enviar()" ng-disabled="miFormulario.$invalid" value="REGISTRAR">
-            	<input class="btn__reset" type="reset" value="LIMPIAR">	
+            	<input class="btn__submit" type="submit" value="ENVIAR">
             </div>
 		</form>
+		
 	</div>
 	
 	</body>
