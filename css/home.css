@@ -1,16 +1,16 @@
 h1 {
   text-align: center;
-  font-size: 80px;
+  font-size: 72px;
   font-family: 'Questrial', sans-serif;
 }
 
 hr{
-  border-bottom: 5px solid #6978B6;
+  border-bottom: 3px solid #6978B6;
   border-spacing: none;
 }
 
 h2{
-  font-size: 65px;
+  font-size: 55px;
   text-align: center;
   font-family: 'Questrial', sans-serif;
 }
@@ -25,4 +25,8 @@ p {
 body{
   background-image: url("/images/header.jpg");
   background-repeat: no-repeat;
+}
+
+.img-centered {
+  margin: 0 auto;
 }

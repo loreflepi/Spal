@@ -74,6 +74,10 @@ h2 span {
   border-bottom: solid #5E6CA4 .2rem;
 }
 
+.text:focus {
+  border-bottom: solid #5E6CA4 .2rem;
+}
+
 .btn__submit, .btn__reset, .btn__registro {
   width: 40%;
   border-bottom: none;
