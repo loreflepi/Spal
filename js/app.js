@@ -18,5 +18,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/contacto.html",
 		controller : "contactoController"
 	})
+	.when("/inicio", {
+		templateUrl : "templates/inicio.html",
+		controller : "inicioController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })
