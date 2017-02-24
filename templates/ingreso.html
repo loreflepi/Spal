@@ -12,17 +12,17 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" ng-controller="ingresoController">
 		<div class="form__top">
 			<h2>Ingresar a Mi Cuenta</h2>
 		</div>		
-		<form class="form__reg" action="">
-            <input class="input" type="email" placeholder="Email" required>
-            <input class="input" type="password" placeholder="Contaseña" required>
+		<form class="form__reg" action="" ng-submit="cargar()">
+            <input class="input" type="text" placeholder="Nombre de usuario" id="usu" required>
+            <input class="input" type="password" placeholder="Contaseña" id="contra" required>
             <label><input class="input" type="checkbox" checked/> Mantener mi sesión iniciada</label>
             <div class="btn__form">
             	<!--localstorage para guardar datos-->
-            	<input class="btn__submit" type="submit" value="INGRESAR">
+            	<input class="btn__submit" type="submit" ng-click="guardar()" value="INGRESAR">
             </div>
 		</form>
 		<br>

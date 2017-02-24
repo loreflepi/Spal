@@ -1,5 +1,11 @@
+html {
+  font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
 body {
-    background-color: #DEEBF7;
+    background-image: url("/images/header.jpg");
+  background-repeat: no-repeat;
 }
 
 #navBar {
@@ -8,6 +14,7 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: rgba(154,209,237,0.5);
+    font-weight: bold;
 }
 
 #navBar li a{

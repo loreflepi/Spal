@@ -1,7 +1,5 @@
-
-
 html {
-  font-size: 16px;
+  font-size: 14px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -67,7 +65,10 @@ h2 span {
   border-bottom: solid #8496E4 .2rem;
   transition: all .5s;
   height: 8em;
-  width: 355px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .input:focus {
@@ -104,3 +105,5 @@ h2 span {
 a{
   color: blue;
 }
+
+
