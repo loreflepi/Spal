@@ -4,9 +4,10 @@
         <!--ingreso-->
         <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/reset.css">
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/contacto.css">
 	<title>Contacto</title>
 </head>
@@ -16,13 +17,18 @@
 		<div class="form__top">
 			<h2>Contáctanos</h2>
 		</div>		
-		<form class="form__reg" action="">
-            <input class="input" type="email" placeholder="Email" required>
-            <input class="input" type="text" placeholder="Asunto" required>
-            <textarea class="text" type="text" name="message" placeholder="Mensaje"></textarea><br />
-            <div class="btn__form">
-            	<input class="btn__submit" type="submit" value="ENVIAR">
-            </div>
+		<form class="form__reg" action="mailto:spal.javeriana@gmail.com" method="post" enctype="text/plain">
+        
+            <p> Envíanos un email haciendo click en el botón, te responderemos lo más pronto posible.</p>
+            <br>
+            <div class="w3-container w3-center" class="btn__form">
+            	<a  href="mailto:spal.javeriana@gmail.com" class="w3-btn-floating-large" target="_blank">
+            		<i class="fa fa-envelope" aria-hidden="true"></i>
+            	</a>
+            	<p>spal.javeriana@gmail.com</p>
+            
+        </div>
+            
 		</form>
 		
 	</div>

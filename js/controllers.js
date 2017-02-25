@@ -18,7 +18,7 @@ app.controller("homeController", function indexController($scope){
 })
  
  
-app.controller("registroController", function ($scope){
+app.controller("registroController", function ($scope,$http){
 
 
 	$scope.hash=function(n){

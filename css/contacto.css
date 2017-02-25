@@ -1,6 +1,9 @@
-html {
-  font-size: 14px;
-    font-family: 'Lato', sans-serif;
+html,body,h1,h2,h3,h4,h5 {
+  font-family: "Lato", sans-serif
+}
+
+p{
+  text-align: center;
 }
 
 body {
@@ -14,6 +17,10 @@ body {
   margin: 5% auto;
   padding-bottom: 1rem;
   
+}
+
+.w3-btn-floating-large{
+  background-color: #5c699f;
 }
 
 .form__top {
@@ -49,12 +56,6 @@ h2 span {
 
 .input, .btn__submit, .btn__reset, .btn__registro{
   float: center;
-  background-color: #EFEFEF;
-  padding: .5rem;
-  margin: .5rem 0;
-  border: none;
-  border-bottom: solid #8496E4 .2rem;
-  transition: all .5s;
 }
 .text{
   float: center;
@@ -79,12 +80,6 @@ h2 span {
   border-bottom: solid #5E6CA4 .2rem;
 }
 
-.btn__submit, .btn__reset, .btn__registro {
-  width: 40%;
-  border-bottom: none;
-  background-color: #4897D8;
-  color: white;
-}
 
 .btn__reset {
   background-color: #EDA135;

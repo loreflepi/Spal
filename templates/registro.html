@@ -8,6 +8,7 @@
 			<link rel="stylesheet" href="css/reset.css">
 			<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
 			<link rel="stylesheet" href="css/main.css">
+			 <script src="https://apis.google.com/js/api.js"></script>
 			<title>Formulario</title>
 
 		</head>
@@ -22,13 +23,11 @@
 			<input class="input" type="text" placeholder="Nombre de usuario" required autofocus ng-model="usuario">
             <input class="input" type="email" placeholder="Email" required ng-model="email">
             <input class="input" type="password" id="input" placeholder="Contaseña" required ng-model="contra">
-            <input class="input" type="text" id="hash">
             <input class="input" type="text" placeholder="Colegio" required ng-model="colegio">
             
             <div class="btn__form">
             	 
-            	<input class="btn__submit" type="submit" ng-disabled="miFormulario.$invalid" value="REGISTRAR">
-            	<input type="button" value="MD5">
+            	<input class="btn__submit" type="submit" ng-disabled="miFormulario.$invalid" ng-click="sendEmail()" value="REGISTRAR">
             	<input class="btn__reset" type="reset" value="LIMPIAR">	
             </div>
 		</form>
