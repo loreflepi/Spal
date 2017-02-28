@@ -10,7 +10,7 @@ body {
 .container {
 	max-width: 450px;
 	height: auto;
-	background-color: #A4D5EE;
+	background-color: rgba(164,213,238,0.5);;
 	margin: 5% auto;
 	padding-bottom: 1rem;
 	
