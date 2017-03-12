@@ -22,5 +22,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/inicio.html",
 		controller : "inicioController"
 	})
+	.when("/tutor", {
+		templateUrl : "templates/tutor.html",
+		controller : "tutorController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })

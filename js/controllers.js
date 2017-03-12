@@ -30,15 +30,23 @@ app.controller("registroController", function ($scope,$http){
 	    //alert($scope.nombre+ $scope.email+ $scope.colegio);
 	     alert($scope.hash($scope.contra));
 		}
+
+	$scope.guardar=function(){
+		//var nombre= document.getElementById("nombre").value;
+		//localStorage.setItem("Nombre de usuario", nombre);
+		var datos=$scope.nombre+ $scope.email+ $scope.colegio;
+		
+	}
+	
 })
  
-app.controller("ingresoController", function ($scope){
+app.controller("ingresoController", function ($scope,$http){
 	$scope.guardar=function(){
 		var usuario= document.getElementById("usu").value;
 		var contra= document.getElementById("contra").value;
 		localStorage.setItem("Nombre de usuario", usuario);
 		localStorage.setItem("contraseña", contra);
-		
+		$scope.login();
 	}
 
 	$scope.cargar=function(){
@@ -48,7 +56,31 @@ app.controller("ingresoController", function ($scope){
 		/*Mostrar datos almacenados*/    
 		document.getElementById("usu").innerHTML = usuario;
 		document.getElementById("contra").innerHTML = contra;
-		alert(usuario+" "+contra);
+		//alert(usuario+" "+contra);
+	}
+
+	$scope.login=function(){
+
+		var usuario= document.getElementById("usu").value;
+		var contra= document.getElementById("contra").value;
+		$http.get('/php/login.php/?usuario='+usuario+'&contra='+contra).then(successCallback, errorCallback);
+
+		function successCallback(response){
+		    console.log(response.data);
+		    if(response.data.confirmacion=="exitoso"){
+		    	localStorage.setItem("Nombre de usuario", usuario);
+		    	location.href = "#!/tutor";
+
+		    }
+		      if(response.data.confirmacion!="exitoso"){
+		    	alert("Verifica tu usuario y/o contraseña");
+
+		    }
+		}
+		function errorCallback(error){
+		    console.log(error);
+		
+		}
 	}
 	
 })
@@ -81,5 +113,12 @@ app.controller("inicioController", function ($scope){
 	  $scope.showDivs(slideIndex += n);
 	}
 
+	
+})
+
+app.controller("tutorController", function ($scope){
+	
+	$scope.nombre=localStorage.getItem('Nombre de usuario');
+	$scope.estudiantes=[{Nombre:"Lorena",Foto:""},{Nombre:"Esteban",Foto:""}];
 	
 })

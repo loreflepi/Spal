@@ -42,12 +42,14 @@ h2 span {
 }
 
 .btn__form {
+	text-decoration: none;
 	display: flex;
 	justify-content: space-around;
 	margin-top: 1rem;
 }
 
 .input, .btn__submit, .btn__reset, .btn__registro{
+	text-decoration: none;
 	background-color: #EFEFEF;
 	padding: .5rem;
 	margin: .5rem 0;
@@ -61,6 +63,7 @@ h2 span {
 }
 
 .btn__submit, .btn__reset, .btn__registro {
+	text-decoration: none;
 	width: 40%;
 	border-bottom: none;
 	background-color: #4897D8;

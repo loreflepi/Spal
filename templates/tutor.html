@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="app">	
+	<body>
+        <!--tutor-->
+        <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/tutor.css">
+	<title>Tutor</title>
+</head>
+<body>
+<br>
+<!--http://fontawesome.io/icons/-->
+	<div class="dropdown" style="right" >
+  <button class="dropbtn">
+  	<i class="fa fa-bars" color="black" aria-hidden="true"></i>
+  	Menú
+  </button>
+  <div class="dropdown-content">
+
+    <a href="#">
+    	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    	Modificar Perfil 
+    </a>
+    <a href="#">
+    	<i class="fa fa-sign-out" aria-hidden="true"></i>
+    	Cerrar Sesión
+    </a>
+  </div>
+</div>
+
+	<div class="container1" ng-controller="tutorController">
+		<div class="form__top">
+			<h2>Bienvenido {{nombre}}!</h2>
+		</div>		
+		<form class="form__reg">
+        
+            <p> En esta página podrás ver tus estudiantes y su respectivo progreso.</p>
+            <br>
+           
+	            <div class="w3-container" class="btn__form" ng-model="myVar">
+
+	            <div class="row">
+            		<div class="cont col-md-6" >
+
+			            <div class="container" ng-repeat="estudiante in estudiantes">
+				            <img  src="images/spal.png" alt="Avatar" class="img-responsive image left" style="width:100%">
+							<div class="middle">
+								<a href="#!/estudiante" style="text-decoration:none">
+							   		<div class="text1">{{estudiante.Nombre}}</div>
+							    </a>
+							</div>
+					</div>
+				</div>
+			
+			</div>
+			<br>
+			
+
+					<div class="w3-show-inline-block w3-center">
+					  <div class="w3-bar" >
+					  	
+					    	<button class="w3-button w3-hover-blue w3-indigo w3-round-large">
+					    		<i class="fa fa-user-plus" aria-hidden="true"></i>
+					    		<a href="#!/registro" >
+					    			Agregar Estudiante
+					    		</a>
+					    	</button>
+					    
+					  </div>
+					</div>
+
+            	</div>
+
+            	
+		</form>
+		
+	</div>
+	</body>
+</html>

@@ -19,15 +19,25 @@
 			<h2>Formulario <span>Registro</span></h2>
 		</div>		
 		<form method="post" class="form__reg" ng-submit="enviar()">
-			<input class="input" type="text" placeholder="Nombre" required autofocus ng-model="nombre">
+			<input class="input" type="text" placeholder="Nombre" required autofocus ng-model="nombre" id="nombre">
+			<input class="input" type="text" placeholder="Apellido" required autofocus ng-model="apellido" id="apellido">
 			<input class="input" type="text" placeholder="Nombre de usuario" required autofocus ng-model="usuario">
             <input class="input" type="email" placeholder="Email" required ng-model="email">
             <input class="input" type="password" id="input" placeholder="Contaseña" required ng-model="contra">
-            <input class="input" type="text" placeholder="Colegio" required ng-model="colegio">
+            <select class="input" placeholder="Colegio" name="Colegio" required>
+            	<option value="" selected="selected">- Colegio -</option>
+			   <option value="1">Windows Vista</option> 
+			   <option value="2">Windows 7</option> 
+			   <option value="3">Windows XP</option>
+			   <option value="10">Fedora</option> 
+			   <option value="11">Debian</option> 
+			   <option value="12">Suse</option> 
+			</select>
             
             <div class="btn__form">
             	 
-            	<input class="btn__submit" type="submit" ng-disabled="miFormulario.$invalid" ng-click="sendEmail()" value="REGISTRAR">
+            	<input class="btn__submit" type="submit" ng-disabled="miFormulario.$invalid" ng-click="sendEmail()" ng-click="guardar()" onclick="location.href='php/conexion.php'" value="REGISTRAR">
+            	
             	<input class="btn__reset" type="reset" value="LIMPIAR">	
             </div>
 		</form>
