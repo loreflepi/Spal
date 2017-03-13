@@ -34,29 +34,41 @@ app.controller("registroController", function ($scope,$http){
 	     var mail= document.getElementById("email").value;
 		 var cont= document.getElementById("cont").value;
 		 var colegio= document.getElementById("colegio").value;
-		 console.log('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&cont='+cont+'&colegio='+colegio);
-		    
-		 $http.get('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&cont='+cont+'&colegio='+colegio).then(successCallback, errorCallback);
-		
+		 var contras=$scope.hash(cont);
+		 console.log('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&contras='+contras+'&colegio='+colegio);
+		 
+		 $http.get('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&contras='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
+
 		function successCallback(response){
 			console.log(response.data);
 		    if(response.data.confirmacion=="exitoso"){
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	localStorage.setItem("Nombre de colegio", colegio);
 		    }
+		    var email = response.data.confirmacion.includes("Email_Tutor");
+		 
+		    if(email==true){
+		    	alert("Ya te enceuntras registrado bajo esta dirección de correo electrónico.");
+		    }
+		    var usuarior = response.data.confirmacion.includes("Username_Tutor");
+		    if(usuarior==true){
+		    	alert("Ya hay un usuario con este mismo nombre de usuario.");
+		    }
 		}
+
 		function errorCallback(error){
 		    console.log(error);
-		
 		}
-		 
-
-
-		}
+	}
 	
 })
  
 app.controller("ingresoController", function ($scope,$http){
+	$scope.hash=function(n){
+			var hash = hex_md5(n);
+	    	return (hash);
+		}
+
 	$scope.guardar=function(){
 		var usuario= document.getElementById("usu").value;
 		var contra= document.getElementById("contra").value;
@@ -79,7 +91,8 @@ app.controller("ingresoController", function ($scope,$http){
 
 		var usuario= document.getElementById("usu").value;
 		var contra= document.getElementById("contra").value;
-		$http.get('/php/login.php/?usuario='+usuario+'&contra='+contra).then(successCallback, errorCallback);
+		var contras=$scope.hash(contra);
+		$http.get('/php/login.php/?usuario='+usuario+'&contras='+contras).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response.data);
@@ -88,7 +101,7 @@ app.controller("ingresoController", function ($scope,$http){
 		    	location.href = "#!/tutor";
 
 		    }
-		      if(response.data.confirmacion!="exitoso"){
+		      if(response.data.confirmacion=="incorrecto_datos"){
 		    	alert("Verifica tu usuario y/o contraseña");
 
 		    }
@@ -136,5 +149,10 @@ app.controller("tutorController", function ($scope){
 	
 	$scope.nombre=localStorage.getItem('Nombre de usuario');
 	$scope.estudiantes=[{Nombre:"Lorena",Foto:""},{Nombre:"Esteban",Foto:""}];
+
+	$scope.logout=function (){
+		localStorage.clear();
+		location.href = "#!/ingreso";
+	}
 	
 })

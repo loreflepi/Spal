@@ -11,11 +11,11 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	if (isset($_GET['usuario']) AND ($_GET['contra']) ){
+	if (isset($_GET['usuario']) AND ($_GET['contras']) ){
 		$nombre_usu=$_GET['usuario'];
-		$contra=$_GET['contra'];
+		$contras=$_GET['contras'];
 
-		$sql = "SELECT Username_Tutor, Password_Tutor FROM dbo.Tutor WHERE Username_Tutor='".$nombre_usu."' AND Password_Tutor='".$contra."'";
+		$sql = "SELECT Username_Tutor, Password_Tutor FROM dbo.Tutor WHERE Username_Tutor='".$nombre_usu."' AND Password_Tutor='".$contras."'";
 		$result = mysqli_query($conn, $sql);
 		$rowcount=mysqli_num_rows($result);
 

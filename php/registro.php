@@ -8,20 +8,20 @@
 	$conn = mysqli_connect($servername, $username, $password);
 	// Check connection
 	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	    die("connection failed: " . mysqli_connect_error());
 	}
 
-	if (isset($_GET['nombre']) AND ($_GET['apellido']) AND ($_GET['mail']) AND ($_GET['usuario']) AND ($_GET['cont']) ){
+	if (isset($_GET['nombre']) AND ($_GET['apellido']) AND ($_GET['mail']) AND ($_GET['usuario']) AND ($_GET['contras']) ){
 		$nombre_usu=$_GET['nombre'];
 		$apellido=$_GET['apellido'];
 		$usuario=$_GET['usuario'];
 		$mail=$_GET['mail'];
-		$cont=$_GET['cont'];
+		$contras=$_GET['contras'];
 		$colegio=$_GET['colegio'];
-		$id_tutor=100;
+		$id_tutor=25;
 
 		$sql = "INSERT INTO dbo.Tutor (ID_Tutor, Name_Tutor, Lastname_Tutor, Email_Tutor, Username_Tutor, Password_Tutor, ID_School)
-				VALUES ('".$id_tutor."', '".$nombre_usu."', '".$apellido."', '".$mail."', '".$usuario."', '".$cont."', ".$colegio.")";
+				VALUES ('".$id_tutor."', '".$nombre_usu."', '".$apellido."', '".$mail."', '".$usuario."', '".$contras."', ".$colegio.")";
 
 		$result = mysqli_query($conn, $sql);
 

@@ -14,25 +14,25 @@
 <body>
 <br>
 <!--http://fontawesome.io/icons/-->
-	<div class="dropdown" style="right" >
-  <button class="dropbtn">
-  	<i class="fa fa-bars" color="black" aria-hidden="true"></i>
-  	Menú
-  </button>
-  <div class="dropdown-content">
+	<div class="dropdown" style="right" ng-controller="tutorController">
+	  <button class="dropbtn">
+	  	<i class="fa fa-bars" color="black" aria-hidden="true"></i>
+	  	Menú
+	  </button>
+	  <div class="dropdown-content">
 
-    <a href="#">
-    	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    	Modificar Perfil 
-    </a>
-    <a href="#">
-    	<i class="fa fa-sign-out" aria-hidden="true"></i>
-    	Cerrar Sesión
-    </a>
-  </div>
+	    <a href="">
+	    	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+	    	Modificar Perfil 
+	    </a>
+	    <a ng-click="logout()">
+	    	<i class="fa fa-sign-out" aria-hidden="true"></i>
+	    	Cerrar Sesión
+	    </a>
+	  </div>
 </div>
 
-	<div class="container1" ng-controller="tutorController">
+	<div class="container1" >
 		<div class="form__top">
 			<h2>Bienvenido {{nombre}}!</h2>
 		</div>		
