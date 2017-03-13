@@ -19,24 +19,40 @@ app.controller("homeController", function indexController($scope){
  
  
 app.controller("registroController", function ($scope,$http){
-
-
 	$scope.hash=function(n){
 		var hash = hex_md5(n);
     	return (hash);
 	}
 
+
 	$scope.enviar=function() {
 	    //alert($scope.nombre+ $scope.email+ $scope.colegio);
-	     alert($scope.hash($scope.contra));
-		}
-
-	$scope.guardar=function(){
-		//var nombre= document.getElementById("nombre").value;
-		//localStorage.setItem("Nombre de usuario", nombre);
-		var datos=$scope.nombre+ $scope.email+ $scope.colegio;
+	     //alert($scope.hash($scope.contra));
+	     var nombre= document.getElementById("nombre").value;
+	     var apellido= document.getElementById("apellido").value;
+	     var usuario= document.getElementById("usuario").value;
+	     var mail= document.getElementById("email").value;
+		 var cont= document.getElementById("cont").value;
+		 var colegio= document.getElementById("colegio").value;
+		 console.log('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&cont='+cont+'&colegio='+colegio);
+		    
+		 $http.get('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&cont='+cont+'&colegio='+colegio).then(successCallback, errorCallback);
 		
-	}
+		function successCallback(response){
+			console.log(response.data);
+		    if(response.data.confirmacion=="exitoso"){
+		    	localStorage.setItem("Nombre de usuario", usuario);
+		    	localStorage.setItem("Nombre de colegio", colegio);
+		    }
+		}
+		function errorCallback(error){
+		    console.log(error);
+		
+		}
+		 
+
+
+		}
 	
 })
  

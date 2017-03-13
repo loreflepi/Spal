@@ -11,7 +11,7 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-if (isset($_GET['usuario']) AND ($_GET['contra']) ){
+	if (isset($_GET['usuario']) AND ($_GET['contra']) ){
 		$nombre_usu=$_GET['usuario'];
 		$contra=$_GET['contra'];
 
@@ -26,16 +26,15 @@ if (isset($_GET['usuario']) AND ($_GET['contra']) ){
 		    $arr = array ('confirmacion'=>"incorrecto_datos");
 		}
 
-    echo json_encode($arr);
-}
-else{
-    $arr = array ('confirmacion'=>"incorrecto_parametros");
+    	echo json_encode($arr);
+	}
 
-    echo json_encode($arr);
-}
-	
-mysqli_close($conn);		
-	
+	else{
+	    $arr = array ('confirmacion'=>"incorrecto_parametros");
 
+	    echo json_encode($arr);
+	}
 	
+	mysqli_close($conn);		
+
 ?>
