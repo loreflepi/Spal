@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">	
+	<body>
+        <!--admin-->
+        <head>
+        	<meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+		    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/admin.css">
+			<title>Administrador</title>
+
+		</head>
+<body>
+
+	<div class="dropdown" style="right" ng-controller="adminController">
+	  <button class="dropbtn">
+	  	<i class="fa fa-bars" color="black" aria-hidden="true"></i>
+	  	Menú
+	  </button>
+	  <div class="dropdown-content">
+	    <a href="" ng-click="logout()">
+	    	<i class="fa fa-sign-out" aria-hidden="true"></i>
+	    	Cerrar Sesión
+	    </a>
+	  </div>
+</div>
+	
+	<div class="container1">
+		<div class="form__top">
+			<h2>¡Bienvenido {{nombre}}!</h2>
+		</div>		
+		<form class="form__reg">
+        
+            <p> En esta página podrás ver usuarios registrados y darles acceso a nuestra plataforma.</p>
+            <br>
+
+            <table class="w3-table">
+		    <tr>
+		      <th>Nombre</th>
+		      <th>Apellido</th>
+		      <th>E-Mail</th>
+		      <th>Usuario</th>
+		      <th>Colegio</th>
+		      <th></th>
+		    </tr>
+		    <tr>
+		      <td>Jill</td>
+		      <td>Smith</td>
+		      <td>lorena5pinzon@gmail.com</td>
+		      <td>hola</td>
+		      <td>hola</td>
+		      <td>
+		      	<a href="" ng-click="tutorRegistro()">
+		      		<i class="fa fa-check fa-2x" aria-hidden="true"></i>
+		      	</a>
+		      	
+			   </td>
+		    </tr>
+
+		    <tr>
+		      <td>Jill</td>
+		      <td>Smith</td>
+		      <td>50</td>
+		      <td>hola</td>
+		      <td>hola</td>
+		      <td>
+		      	<a href="">
+		      		<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+		      	</a>
+		      	
+			   </td>
+		    </tr>
+		  </table>
+
+		</div>
+		<br>
+	</form>
+	</body>
+</html>

@@ -35,15 +35,19 @@ app.controller("registroController", function ($scope,$http){
 		 var cont= document.getElementById("cont").value;
 		 var colegio= document.getElementById("colegio").value;
 		 var contras=$scope.hash(cont);
-		 console.log('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&contras='+contras+'&colegio='+colegio);
+		 console.log('http://162.243.36.251/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio);
 		 
-		 $http.get('/php/registro.php/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&usuario='+usuario+'&contras='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
+		 $http.get('http://162.243.36.251/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
 		    if(response.data.confirmacion=="exitoso"){
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	localStorage.setItem("Nombre de colegio", colegio);
+		    	localStorage.setItem("Nombre", nombre);
+		    	localStorage.setItem("Apellido", apellido);
+		    	localStorage.setItem("colegio", colegio);
+		    	localStorage.setItem("mail", mail);
 		    }
 		    var email = response.data.confirmacion.includes("Email_Tutor");
 		 
@@ -92,16 +96,18 @@ app.controller("ingresoController", function ($scope,$http){
 		var usuario= document.getElementById("usu").value;
 		var contra= document.getElementById("contra").value;
 		var contras=$scope.hash(contra);
-		$http.get('/php/login.php/?usuario='+usuario+'&contras='+contras).then(successCallback, errorCallback);
+		$http.get('http://162.243.36.251/spal-server/rs/spal/login/?user='+usuario+'&pass='+contras).then(successCallback, errorCallback);
 
 		function successCallback(response){
-		    console.log(response.data);
-		    if(response.data.confirmacion=="exitoso"){
+		    console.log(response);
+
+		    if(response.data.user!=null){
+		    	alert("Hola");
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	location.href = "#!/tutor";
 
 		    }
-		      if(response.data.confirmacion=="incorrecto_datos"){
+		      else{
 		    	alert("Verifica tu usuario y/o contraseña");
 
 		    }
@@ -154,5 +160,46 @@ app.controller("tutorController", function ($scope){
 		localStorage.clear();
 		location.href = "#!/ingreso";
 	}
+
+})
+	
+	app.controller("adminController", function ($scope, $http){
+	
+	$scope.nombre=localStorage.getItem('Nombre');
+	$scope.apellido=localStorage.getItem('Apellido');
+	$scope.colegio=localStorage.getItem('Colegio');
+	$scope.estudiantes=[{Nombre:"Lorena",Foto:""},{Nombre:"Esteban",Foto:""}];
+
+	$scope.logout=function (){
+		localStorage.clear();
+		location.href = "#!/ingreso";
+	}
+
+	$scope.tutorRegistro=function(){
+		
+		$http.get('http://162.243.36.251/spal-server/rs/spal/admin').then(successCallback, errorCallback);
+
+		function successCallback(response){
+		    console.log(response);
+		    if(response.data.confirmacion=="exitoso"){
+		    	localStorage.setItem("Nombre de usuario", usuario);
+		    	
+
+		    }
+		      if(response.data.confirmacion=="incorrecto_datos"){
+		    	alert("Verifica tu usuario y/o contraseña");
+
+		    }
+		}
+		function errorCallback(error){
+		    console.log(error);
+		
+		}
+	}
+})
+
+
+	app.controller("regestController", function ($scope, $http){
+	$scope.saludo = "Hola desde el controlador login";
 	
 })

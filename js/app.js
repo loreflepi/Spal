@@ -26,5 +26,13 @@ app.config(function($routeProvider){
 		templateUrl : "templates/tutor.html",
 		controller : "tutorController"
 	})
+	.when("/administrador", {
+		templateUrl : "templates/administrador.html",
+		controller : "adminController"
+	})
+	.when("/registroEst", {
+		templateUrl : "templates/registroEst.html",
+		controller : "regestController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })
