@@ -34,5 +34,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/registroEst.html",
 		controller : "regestController"
 	})
+	.when("/estudiante", {
+		templateUrl : "templates/estudiante.html",
+		controller : "estController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })

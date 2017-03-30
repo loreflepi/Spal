@@ -48,7 +48,7 @@ h2 span {
 	margin-top: 1rem;
 }
 
-.input, .btn__submit, .btn__reset, .btn__registro{
+.input, .btn__submit, .btn__reset, .btn__volver{
 	text-decoration: none;
 	background-color: #EFEFEF;
 	padding: .5rem;
@@ -62,7 +62,7 @@ h2 span {
 	border-bottom: solid #5E6CA4 .2rem;
 }
 
-.btn__submit, .btn__reset, .btn__registro {
+.btn__submit, .btn__reset, .btn__volver {
 	text-decoration: none;
 	width: 40%;
 	border-bottom: none;
@@ -74,7 +74,7 @@ h2 span {
 	background-color: #EDA135;
 }
 
-.btn__registro {
+.btn__volver {
 	background-color: #EDA135;
 }
 
@@ -88,4 +88,12 @@ h2 span {
 
 a{
 	color: blue;
+
+}
+.regresar{
+	text-decoration:none;
+	color:black;
+	margin-left: 5%;
+	font-size: 20px;
+
 }

@@ -5,9 +5,8 @@
         <head>
         	<meta charset="UTF-8">
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 		    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-		    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/admin.css">
 			<title>Administrador</title>
@@ -27,17 +26,24 @@
 	    </a>
 	  </div>
 </div>
+
+	<div class="icono">
+		 <a ng-click="tutorRegistro()" href="">
+	    	<i class="fa fa-refresh fa-3x fa-fw" aria-hidden="true"></i>
+			<!--span class="sr-only">Refreshing...</span>-->
+	    </a>
+	</div>
 	
-	<div class="container1">
+	<div class="container1" >
 		<div class="form__top">
 			<h2>¡Bienvenido {{nombre}}!</h2>
 		</div>		
-		<form class="form__reg">
+		<form class="form__reg" >
         
             <p> En esta página podrás ver usuarios registrados y darles acceso a nuestra plataforma.</p>
             <br>
 
-            <table class="w3-table">
+            <table class="w3-table" >
 		    <tr>
 		      <th>Nombre</th>
 		      <th>Apellido</th>
@@ -47,13 +53,13 @@
 		      <th></th>
 		    </tr>
 		    <tr>
-		      <td>Jill</td>
-		      <td>Smith</td>
-		      <td>lorena5pinzon@gmail.com</td>
-		      <td>hola</td>
-		      <td>hola</td>
+		      <td placeholder="Nombre">{{nombre}}</td>
+		      <td placeholder="Apellido">{{apellido}}</td>
+		      <td placeholder="Email">{{email}}</td>
+		      <td placeholder="Usuario">{{usuario}}</td>
+		      <td placeholder="Colegio">{{colegio}}</td>
 		      <td>
-		      	<a href="" ng-click="tutorRegistro()">
+		      	<a href="" >
 		      		<i class="fa fa-check fa-2x" aria-hidden="true"></i>
 		      	</a>
 		      	
