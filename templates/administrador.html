@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">	
+<html ng-app="app" onload="tutorRegistro()">>	
 	<body>
         <!--admin-->
         <head>
@@ -12,7 +12,7 @@
 			<title>Administrador</title>
 
 		</head>
-<body>
+<body> 
 
 	<div class="dropdown" style="right" ng-controller="adminController">
 	  <button class="dropbtn">
@@ -42,7 +42,6 @@
         
             <p> En esta página podrás ver usuarios registrados y darles acceso a nuestra plataforma.</p>
             <br>
-
             <table class="w3-table" >
 		    <tr>
 		      <th>Nombre</th>
@@ -52,33 +51,22 @@
 		      <th>Colegio</th>
 		      <th></th>
 		    </tr>
-		    <tr>
-		      <td placeholder="Nombre">{{nombre}}</td>
-		      <td placeholder="Apellido">{{apellido}}</td>
-		      <td placeholder="Email">{{email}}</td>
-		      <td placeholder="Usuario">{{usuario}}</td>
-		      <td placeholder="Colegio">{{colegio}}</td>
+		    <tr ng-repeat="tutor in tutores">
+		      <td placeholder="Nombre">{{tutor.nombre}}</td>
+		      <td placeholder="Apellido">{{tutor.apellido}}</td>
+		      <td placeholder="Email">{{tutor.mail}}</td>
+		      <td placeholder="Usuario">{{tutor.user}}</td>
+		      <td placeholder="Colegio">{{tutor.colegio}}</td>
 		      <td>
 		      	<a href="" >
-		      		<i class="fa fa-check fa-2x" aria-hidden="true"></i>
+		      
+		      		<i class="fa fa-check fa-2x" aria-hidden="true" ng-click="acceso(tutor.id, tutor.mail)"></i>
 		      	</a>
 		      	
 			   </td>
 		    </tr>
 
-		    <tr>
-		      <td>Jill</td>
-		      <td>Smith</td>
-		      <td>50</td>
-		      <td>hola</td>
-		      <td>hola</td>
-		      <td>
-		      	<a href="">
-		      		<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-		      	</a>
-		      	
-			   </td>
-		    </tr>
+		   
 		  </table>
 
 		</div>

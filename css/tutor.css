@@ -182,6 +182,20 @@ a:hover{
     background-color: #b5c9ee;
 }
 
+.img-centered {
+  margin: 0 auto;
+}
+
+#hola li
+{
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}   
+
+.adios {
+  width: 10%;
+}
 
 
 

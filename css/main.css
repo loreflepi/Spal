@@ -97,3 +97,13 @@ a{
 	font-size: 20px;
 
 }
+
+.thumb{
+    width:100px;
+    margin:5px;
+    position: center;
+}
+
+.uploader{
+    clear:both;
+}

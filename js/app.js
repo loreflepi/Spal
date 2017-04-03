@@ -38,5 +38,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/estudiante.html",
 		controller : "estController"
 	})
+	.when("/olvido", {
+		templateUrl : "templates/olvido.html",
+		controller : "olvidoController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })

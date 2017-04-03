@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">	
+	<body>
+        <!--registro-->
+        <head>
+        	<meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+		    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/reset.css">
+			<link rel="stylesheet" href="css/main.css">
+			<title>Modificar</title>
+
+		</head>
+<body>
+	
+	<div class="container" ng-controller="olvidoController" >
+		<div class="form__top">
+			<h2>Cambiar <span>Contraseña</span></h2>
+		</div>		
+
+		<form method="post" class="form__reg" ng-submit="cambiar()">
+            <input class="input" type="email" placeholder="Email" required id="email">
+			<input class="input" type="password" placeholder="Nueva contaseña" required ng-model="contra" id="cont">
+            
+            <div class="btn__form">
+            	 
+            	<input class="btn__submit" type="submit" ng-disabled="miFormulario.$invalid" value="MODIFICAR">
+            	
+            	<input class="btn__reset" type="reset" value="LIMPIAR">	
+            </div>
+		</form>
+	</div>
+	
+	</body>
+</html>

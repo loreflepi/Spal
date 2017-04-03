@@ -22,7 +22,7 @@
 	  </button>
 	  <div class="dropdown-content">
 
-	    <a href="">
+	    <a href="#!/modificar">
 	    	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 	    	Modificar Perfil 
 	    </a>
@@ -36,31 +36,20 @@
 
 
 	<div class="container1" >
+
 		<div class="form__top">
+			<img src="images/user.png" class="img-responsive img-circle img-centered" alt="">
 			<h2>¡Bienvenido {{nombre}}!</h2>
 		</div>		
 		<form class="form__reg">
         
             <p> En esta página podrás ver tus estudiantes y su respectivo progreso.</p>
             <br>
-           
-	            <div class="w3-container" class="btn__form" ng-model="myVar">
 
-	            <div class="row">
-            		<div class="col-sm-4 ">
+            <p ng-repeat="estudiante in estudiantes" style="font-weight: bold;"><a href="#!/estudiante"> {{estudiante.nombre}} {{estudiante.apellido}}</a></p>
 
-			            <div class="container" ng-repeat="estudiante in estudiantes">
-				            <img  src="images/spal.png" alt="Avatar" class="img-responsive image">
-				            <h3>{{estudiante.Nombre}}</h3>
-							<div class="middle">
-								<a href="#!/estudiante" style="text-decoration:none">
-							   		<div class="text1">Detalle</div>
-							    </a>
-							</div>
-					</div>
-				</div>
-			
-			</div>
+			           
+
 			<br>
 			
 
@@ -81,6 +70,9 @@
             	
 		</form>
 		
-	</div>
+
+				            
+				
 	</body>
+
 </html>
