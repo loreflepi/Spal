@@ -22,10 +22,8 @@
 			<h2>Formulario <span>Registro</span></h2>
 		</div>		
 		<form method="post" class="form__reg" ng-submit="enviar()">
-			<div ng-repeat="imagen in imagenes">
-        		<img class="thumb" ng-src="{{imagen}}"/>
-    		</div>
-			<input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" single id="foto" />
+			<input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" single/>
+			<img id="foto" src="" height="200" alt="No se ha cargado ninguna imágen...">
 			<input class="input" type="text" placeholder="Nombre" required autofocus id="nombre">
 			<input class="input" type="text" placeholder="Apellido" required id="apellido">
 			<input class="input" type="text" placeholder="Nombre de usuario" required id="usuario">

@@ -1,14 +1,14 @@
-html,body,h1,h2,h3,h4,h5 {
- font-family: "Lato", sans-serif;
+html {
+font-family: "Lato", sans-serif;
 font-size: 14px;
-}
-
-p{
-  text-align: center;
 }
 
 body {
   background-color: #DEEBF7;
+}
+
+p{
+  text-align: center;
 }
 
 .container {
@@ -18,10 +18,6 @@ body {
   margin: 5% auto;
   padding-bottom: 1rem;
   
-}
-
-.w3-btn-floating-large{
-  background-color: #5c699f;
 }
 
 .form__top {
@@ -50,43 +46,39 @@ h2 span {
 }
 
 .btn__form {
+  text-decoration: none;
   display: flex;
   justify-content: space-around;
   margin-top: 1rem;
 }
 
-.input, .btn__submit, .btn__reset, .btn__registro{
-  float: center;
-}
-.text{
-  float: center;
+.input, .btn__submit, .btn__reset, .btn__volver{
+  text-decoration: none;
   background-color: #EFEFEF;
   padding: .5rem;
   margin: .5rem 0;
   border: none;
   border-bottom: solid #8496E4 .2rem;
   transition: all .5s;
-  height: 8em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .input:focus {
   border-bottom: solid #5E6CA4 .2rem;
 }
 
-.text:focus {
-  border-bottom: solid #5E6CA4 .2rem;
+.btn__submit, .btn__reset, .btn__volver {
+  text-decoration: none;
+  width: 40%;
+  border-bottom: none;
+  background-color: #4897D8;
+  color: white;
 }
-
 
 .btn__reset {
   background-color: #EDA135;
 }
 
-.btn__registro {
+.btn__volver {
   background-color: #EDA135;
 }
 
@@ -97,9 +89,4 @@ h2 span {
 .btn__reset:hover{
   background-color: #FA9535;
 }
-
-a{
-  color: blue;
-}
-
 

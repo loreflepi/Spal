@@ -3,6 +3,20 @@
 app.controller("homeController", function indexController($scope){
 
 })
+
+app.controller("barraController", function ($scope,$window){
+	if(localStorage.getItem("Nombre de usuario")!=null){
+		console.log(localStorage.getItem("Nombre de usuario"));
+		$scope.logeado=true;
+	}
+	$scope.recarga=function() {
+		localStorage.clear();
+		$logeado=false;
+		location.href = "#!/ingreso";
+		location.reload();
+
+	}
+})
  
  
 app.controller("registroController", function ($scope,$http){
@@ -12,31 +26,32 @@ app.controller("registroController", function ($scope,$http){
     	return (hash);
 	}
 
-    $scope.imagenes = [];
-
     $scope.imageUpload = function(event){
-         var files = event.target.files; //FileList object
-         
-         for (var i = 0; i < files.length; i++) {
-             var file = files[i];
-                 var reader = new FileReader();
-                 reader.onload = $scope.imageIsLoaded; 
-                 reader.readAsDataURL(file);
-         }
+    	 var preview=document.querySelector('img[id=foto]');
+         var file = document.querySelector('input[type=file]').files[0]; 
+         var reader = new FileReader();
+   		 var b;
+          reader.onload = $scope.imageIsLoaded=function(){
+          
+          	preview.src=reader.result;
+          	$scope.dir=document.getElementById("foto").getAttribute("src");
+
+          	
+
+          } 
+
+
+          if (file) {
+          	  reader.readAsDataURL(file); 
+          }
+          else{
+          	preview.src="";
+          }
+
     }
-
-    $scope.imageIsLoaded = function(e){
-        $scope.$apply(function() {
-        	$scope.imagenes.splice(e.target.result);
-            $scope.imagenes.push(e.target.result);
-
-        });
-    }
-
-
 
 	$scope.enviar=function() {
-	   	 var foto= document.getElementById("foto").value;
+	
 	     var nombre= document.getElementById("nombre").value;
 	     var apellido= document.getElementById("apellido").value;
 	     var usuario= document.getElementById("usuario").value;
@@ -44,20 +59,30 @@ app.controller("registroController", function ($scope,$http){
 		 var cont= document.getElementById("cont").value;
 		 var colegio= document.getElementById("colegio").value;
 		 var contras=$scope.hash(cont);
-		 console.log('http://127.0.0.1:18080/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&foto='+foto);
+		 
+		 //console.log('http://127.0.0.1:18080/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
 		 
 		 $http.get('http://127.0.0.1:18080/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
 		    if(response.data.mail!=null && response.data.user!=null){
-		    	alert("Espera a un correo de verificación por parte del administador.");
+		    	
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	localStorage.setItem("Nombre de colegio", colegio);
 		    	localStorage.setItem("Nombre", nombre);
 		    	localStorage.setItem("Apellido", apellido);
 		    	localStorage.setItem("colegio", colegio);
 		    	localStorage.setItem("mail", mail);
+		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
+	          	$http.post("http://127.0.0.1:18080/spal-server/rs/spal/update/",parameter).then(success, error);
+	          	function success(data) {
+	          		alert("Espera a un correo de verificación por parte del administador.");
+	        		console.log(data);
+	      		}
+		        function error(data) {
+	  				console.log("Error subiendo imagen");
+	    	    }
 		    }
 		 
 		    if(response.data.mail==null){
@@ -113,20 +138,19 @@ app.controller("ingresoController", function ($scope,$http){
 		    console.log(response);
 
 		    if(response.data.user!=null && response.data.tipo==2){
-		    	alert("Login exitoso");
 				localStorage.setItem("contraseña", contras);
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	location.href = "#!/tutor";
-
+				$logeado=true;
+				location.reload();
 		    }
 		      
-
 		    if(response.data.user!=null && response.data.tipo==1){
-		    	alert("Login exitoso");
 		    	localStorage.setItem("Nombre de usuario", usuario);
 		    	localStorage.setItem("contraseña", contras);
 		    	location.href = "#!/administrador";
-
+		    	$logeado=true;
+				location.reload();
 		    }
 		      if (response.data.user==null && response.data.tipo==0){
 		    	alert("Verifica tu usuario y/o contraseña");
@@ -141,9 +165,34 @@ app.controller("ingresoController", function ($scope,$http){
 	
 })
 
-app.controller("contactoController", function contactoController($scope, $location){
-	$scope.saludo = "Hola desde el controlador login";
+app.controller("contactoController", function ($scope, $http){
+
+	$scope.envio= function(){
+	var email= document.getElementById("email").value;
+		var asunto= document.getElementById("asunto").value;
+		var mensaje=document.getElementById("mensaje").value;;
 	
+		$http.get('http://127.0.0.1:18080/spal-server/rs/spal/contacto/?email='+email+'&asunto='+asunto+'&mensaje='+mensaje).then(successCallback, errorCallback);
+
+		function successCallback(response){
+		    console.log(response);
+
+		    if(response.data.email!=null){
+		    	alert("Se envió tu correo");
+		
+		    }
+		   
+		      if (response.data.email==null ){
+		    	alert("No se pudo enviar tu correo");
+
+		    }
+		}
+		function errorCallback(error){
+		    console.log(error);
+		
+		}
+	}
+ 
 })
 
 app.controller("inicioController", function ($scope){
@@ -169,10 +218,9 @@ app.controller("inicioController", function ($scope){
 	  $scope.showDivs(slideIndex += n);
 	}
 
-	
 })
 
-app.controller("tutorController", function ($scope,$http){
+app.controller("tutorController", function ($scope,$http,$route){
 	
 	$scope.nombre=localStorage.getItem('Nombre de usuario');
 
@@ -183,7 +231,7 @@ app.controller("tutorController", function ($scope,$http){
 		    if (response.data.length>0) {
 		    
 		    	$scope.estudiantes=response.data;
-		 	
+		 		
 		   }
 		   else{
 			    	alert("No hay estudiantes asociados");
@@ -197,7 +245,14 @@ app.controller("tutorController", function ($scope,$http){
 
 	$scope.logout=function (){
 		localStorage.clear();
+		$logeado=false;
 		location.href = "#!/ingreso";
+		location.reload();
+	}
+
+	$scope.guardar=function(nombre){
+		localStorage.setItem("Nombre estudiante", nombre);
+		 console.log(nombre);
 	}
 
 })
@@ -331,10 +386,16 @@ app.controller("tutorController", function ($scope,$http){
 })
 
 app.controller("estController", function ($scope, $http){
-	var pieData = [{value:40,color:"#0b82e7",highlight: "#0c62ab",label: "Primer dato"},
-	{value:60,color:"#0b82e7",highlight: "#0c62ab",label: "Segundo dato"}];
-	var ctx = document.getElementById("chart-area").getContext("2d");
-	window.myPie = new Chart(ctx).Pie(pieData);	
+
+	$scope.nombreest = localStorage.getItem("Nombre estudiante");
+
+	    $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.series = ['Series A', 'Series B'];
+
+    $scope.data = [
+      [65, 59, 80, 81, 56, 55, 40],
+      [28, 48, 40, 19, 86, 27, 90]
+    ]
 	
 })
 

@@ -46,7 +46,7 @@
             <p> En esta página podrás ver tus estudiantes y su respectivo progreso.</p>
             <br>
 
-            <p ng-repeat="estudiante in estudiantes" style="font-weight: bold;"><a href="#!/estudiante"> {{estudiante.nombre}} {{estudiante.apellido}}</a></p>
+            <p ng-repeat="estudiante in estudiantes" style="font-weight: bold;"><a ng-click="guardar(estudiante.nombre)" href="#!/estudiante"> {{estudiante.nombre}} {{estudiante.apellido}}</a></p>
 
 			           
 
@@ -61,7 +61,7 @@
 					    			Agregar Estudiante
 					    		</a>
 					    	</button>
-					    
+					    	
 					  </div>
 					</div>
 
@@ -69,10 +69,7 @@
 
             	
 		</form>
-		
-
-				            
-				
+			
 	</body>
 
 </html>

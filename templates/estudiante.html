@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">	
 	<body>
-        <!--registroEst-->
+        <!--estudiante-->
         <head>
         	<meta charset="UTF-8">
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/reset.css">
 			<link rel="stylesheet" href="css/main.css">
-			<title>Formulario</title>
+			<title>Progreso</title>
 
 		</head>
 <body>
@@ -21,9 +21,38 @@
 	 </a>
 
 
+	 <div class="container">
+	 	<div class="form__top">
+			<h2>Este es el progreso de {{nombreest}}</h2>
+		</div>	
 
-	<div id="canvas-holder">
-		<canvas id="chart-area" width="300" height="300"></canvas>
-	</div>
+		<h3 style="font-weight: bold;">
+			Combinación silábica identificada
+		</h3>
+		<p>Vocal</p>
+		<p>Vocal-consonante</p>
+		<p>Consonante-vocal</p>
+		<p>Consonante-consonante-vocal</p>
+		<p>Consonante-vocal-vocal</p>
+		<br>
+		<h3 style="font-weight: bold;">
+			Combinación silábica no identificada
+		</h3>
+		<p>Vocal</p>
+		<p>Vocal-consonante</p>
+		<p>Consonante-vocal</p>
+		<p>Consonante-consonante-vocal</p>
+		<p>Consonante-vocal-vocal</p>
+		<br>
+		<h3 style="font-weight: bold;">
+			Conoce la ortografía de las palabras
+		</h3>			
+	 </div>
+
+	 	<canvas id="base" class="chart-horizontal-bar"
+  chart-data="data" chart-labels="labels">
+</canvas>
+
+	
 	</body>
 </html>
