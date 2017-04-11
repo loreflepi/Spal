@@ -27,11 +27,13 @@
 
 		<ul id="navBar" ng-controller="barraController">
 		  <li id="op" ><a href="#!/contacto">Contáctanos</a></li>
-		  <li id="op" ng-hide="logeado"><a class="navOpcion" href="#!/ingreso">Ingresa</a></li>
-		  <li id="op" ng-hide="logeado"><a class="navOpcion" href="#!/registro">Regístrate</a></li>
-		  <li id="op" ng-show="logeado" ><a class="navOpcion" ng-click="recarga()" href="">Cerrar Sesión</a></li>
+		  <li id="op" ng-hide="esconder" ><a class="navOpcion" href="#!/ingreso">Ingresa</a></li>
+		  <li id="op" ng-hide="esconder" ><a class="navOpcion" href="#!/registro">Regístrate</a></li>
+		  <li id="op" ng-show="logeado" ><a class="navOpcion" ng-click="recargat()" href="">Cerrar Sesión</a></li>
+		  <li id="op" ng-show="logeadoa" ><a class="navOpcion" ng-click="recargaa()" href="">Cerrar Sesión</a></li>
 		  <li id="op"><a class="navOpcion" href="#!/inicio">Inicio</a></li>
 		  <li id="op" ng-show="logeado"><a class="navOpcion" href="#!/tutor">Perfíl</a></li>
+		  <li id="op" ng-show="logeadoa"><a class="navOpcion" href="#!/administrador">Perfíl</a></li>
 
 		</ul>
 

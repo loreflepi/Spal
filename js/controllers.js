@@ -1,21 +1,41 @@
 
 
-app.controller("homeController", function indexController($scope){
+app.controller("homeController", function ($scope){
 
 })
 
 app.controller("barraController", function ($scope,$window){
-	if(localStorage.getItem("Nombre de usuario")!=null){
-		console.log(localStorage.getItem("Nombre de usuario"));
-		$scope.logeado=true;
+
+
+	if(localStorage.getItem("Nombre de usuario admin")!=null){
+		$scope.logeadoa=true;
+		$scope.esconder=true;
 	}
-	$scope.recarga=function() {
+
+	if(localStorage.getItem("Nombre de usuario")!=null){
+		$scope.logeado=true;
+		$scope.esconder=true;
+	}
+
+
+	$scope.recargat=function() {
 		localStorage.clear();
 		$logeado=false;
+		$esconder=true;
 		location.href = "#!/ingreso";
 		location.reload();
 
 	}
+
+	$scope.recargaa=function() {
+		localStorage.clear();
+		$esconder=true;
+		$logeadoa=false;
+		location.href = "#!/ingreso";
+		location.reload();
+
+	}
+
 })
  
  
@@ -146,10 +166,10 @@ app.controller("ingresoController", function ($scope,$http){
 		    }
 		      
 		    if(response.data.user!=null && response.data.tipo==1){
-		    	localStorage.setItem("Nombre de usuario", usuario);
+		    	localStorage.setItem("Nombre de usuario admin", usuario);
 		    	localStorage.setItem("contraseña", contras);
 		    	location.href = "#!/administrador";
-		    	$logeado=true;
+		    	$logeadoa=true;
 				location.reload();
 		    }
 		      if (response.data.user==null && response.data.tipo==0){
@@ -223,8 +243,8 @@ app.controller("inicioController", function ($scope){
 app.controller("tutorController", function ($scope,$http,$route){
 	
 	$scope.nombre=localStorage.getItem('Nombre de usuario');
-
-	$http.get('http://127.0.0.1:18080/spal-server/rs/spal/estudiantes').then(successCallback, errorCallback);
+	//console.log('http://127.0.0.1:18080/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre);
+	$http.get('http://127.0.0.1:18080/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -281,7 +301,9 @@ app.controller("tutorController", function ($scope,$http,$route){
 
 	$scope.logout=function (){
 		localStorage.clear();
+		$loagadmin=false;
 		location.href = "#!/ingreso";
+		location.reload();
 	}
 
 	$scope.acceso=function(id, email){
@@ -359,7 +381,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 		 var cumple= document.getElementById("cumple").value;
 		 var genero= document.getElementById("genero").value;
 		
-		 console.log('http://127.0.0.1:18080/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple);
+		 //console.log('http://127.0.0.1:18080/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple);
 		 
 		 $http.get('http://127.0.0.1:18080/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple).then(successCallback, errorCallback);
 
