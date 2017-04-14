@@ -23,30 +23,27 @@
 
 	 <div class="container">
 	 	<div class="form__top">
-			<h2>Este es el progreso de {{nombreest}}</h2>
+			<h2>Este es el progreso de tus estudiantes</h2>
 		</div>	
 
-		<h3 style="font-weight: bold;">
-			Combinación silábica identificada
-		</h3>
-		<p>Vocal</p>
-		<p>Vocal-consonante</p>
-		<p>Consonante-vocal</p>
-		<p>Consonante-consonante-vocal</p>
-		<p>Consonante-vocal-vocal</p>
-		<br>
-		<h3 style="font-weight: bold;">
-			Combinación silábica no identificada
-		</h3>
-		<p>Vocal</p>
-		<p>Vocal-consonante</p>
-		<p>Consonante-vocal</p>
-		<p>Consonante-consonante-vocal</p>
-		<p>Consonante-vocal-vocal</p>
-		<br>
-		<h3 style="font-weight: bold;">
-			Conoce la ortografía de las palabras
-		</h3>			
+		<table class="w3-table" >
+		    <tr style='font-weight: bold;'>
+		      <th>Nombre</th>
+		      <th>Palabra</th>
+		      <th>Respuesta</th>
+		      <th>Dificultad</th>
+		      <th></th>
+		    </tr>
+		    <tr ng-repeat="reporte in reportes">
+		      <td placeholder="Nombre">{{reporte.nombre}}</td>
+		      <td placeholder="Palabra">{{reporte.palabra}}</td>
+		      <td placeholder="Respuesta">{{reporte.respuesta}}</td>
+		      <td placeholder="Dificultad">{{reporte.dificultad}}</td>
+		      
+		    </tr>
+
+		   
+		  </table>
 	 </div>
 
 	 	<canvas id="base" class="chart-horizontal-bar"

@@ -33,12 +33,10 @@
 	  </div>
 	</div>
 
-
-
 	<div class="container1" >
 
 		<div class="form__top">
-			<img src="images/user.png" class="img-responsive img-circle img-centered" alt="">
+			
 			<h2>¡Bienvenido {{nombre}}!</h2>
 		</div>		
 		<form class="form__reg">
@@ -46,13 +44,9 @@
             <p> En esta página podrás ver tus estudiantes y su respectivo progreso.</p>
             <br>
 
-            <p ng-repeat="estudiante in estudiantes" style="font-weight: bold;"><a ng-click="guardar(estudiante.nombre)" href="#!/estudiante"> {{estudiante.nombre}} {{estudiante.apellido}}</a></p>
-
-			           
+            <p ng-repeat="estudiante in estudiantes" style="font-weight: bold;"><a ng-click="guardar(estudiante.nombre)"> {{estudiante.nombre}} {{estudiante.apellido}}</a></p>
 
 			<br>
-			
-
 					<div class="w3-show-inline-block w3-center">
 					  <div class="w3-bar" >
 					    	<button class="w3-button w3-hover-blue w3-indigo w3-round-large">
@@ -61,7 +55,11 @@
 					    			Agregar Estudiante
 					    		</a>
 					    	</button>
-					    	
+					    	<button class="w3-button w3-hover-blue w3-indigo w3-round-large">
+					    		<a href="#!/estudiante" >
+					    			Ver Reporte
+					    		</a>
+					    	</button>
 					  </div>
 					</div>
 

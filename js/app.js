@@ -42,5 +42,9 @@ app.config(function($routeProvider){
 		templateUrl : "templates/olvido.html",
 		controller : "olvidoController"
 	})
+	.when("/palabraNueva", {
+		templateUrl : "templates/palabraNueva.html",
+		controller : "nuevaController"
+	})
 	.otherwise({ reditrectTo : "/" });
 })

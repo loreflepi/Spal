@@ -128,24 +128,6 @@ app.controller("ingresoController", function ($scope,$http){
 	    	alert(hash);
 		}
 
-	$scope.guardar=function(){
-		var usuario= document.getElementById("usu").value;
-		var contra= document.getElementById("contra").value;
-		localStorage.setItem("Nombre de usuario", usuario);
-		localStorage.setItem("contraseña", contra);
-		$scope.login();
-	}
-
-	$scope.cargar=function(){
-		/*Obtener datos almacenados*/
-		var usuario = localStorage.getItem("Nombre de usuario");
-		var contra = localStorage.getItem("contraseña");
-		/*Mostrar datos almacenados*/    
-		document.getElementById("usu").innerHTML = usuario;
-		document.getElementById("contra").innerHTML = contra;
-		//alert(usuario+" "+contra);
-	}
-
 	$scope.login=function(){
 
 		var usuario= document.getElementById("usu").value;
@@ -409,15 +391,18 @@ app.controller("tutorController", function ($scope,$http,$route){
 
 app.controller("estController", function ($scope, $http){
 
-	$scope.nombreest = localStorage.getItem("Nombre estudiante");
+	 $http.get('http://127.0.0.1:18080/spal-server/rs/spal/reporte/?user='+localStorage.getItem('Nombre de usuario')).then(successCallback, errorCallback);
 
-	    $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-    $scope.series = ['Series A', 'Series B'];
+		function successCallback(response){
+			console.log(response.data);
+		    
+		    $scope.reportes=response.data;
+		}
 
-    $scope.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
-    ]
+		function errorCallback(error){
+		    console.log(error);
+		}
+
 	
 })
 
@@ -445,4 +430,79 @@ app.controller("olvidoController", function ($scope, $http){
 		    console.log(error);
 		}
 	}
+})
+
+app.controller("nuevaController", function ($scope, $http){
+
+	$scope.imageUpload = function(event){
+    	 var preview=document.querySelector('img[id=foto]');
+         var file = document.querySelector('input[type=file]').files[0]; 
+         var reader = new FileReader();
+   		 var b;
+          reader.onload = $scope.imageIsLoaded=function(){
+          
+          	preview.src=reader.result;
+          	$scope.dir=document.getElementById("foto").getAttribute("src");
+
+          } 
+
+
+          if (file) {
+          	  reader.readAsDataURL(file); 
+          }
+          else{
+          	preview.src="";
+          }
+
+    }
+
+	$scope.enviar=function() {
+	
+	     var nombre= document.getElementById("nombre").value;
+	     var apellido= document.getElementById("apellido").value;
+	     var usuario= document.getElementById("usuario").value;
+	     var mail= document.getElementById("email").value;
+		 var cont= document.getElementById("cont").value;
+		 var colegio= document.getElementById("colegio").value;
+		 var contras=$scope.hash(cont);
+		 
+		 //console.log('http://127.0.0.1:18080/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
+		 
+		 $http.get('http://127.0.0.1:18080/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
+
+		function successCallback(response){
+			console.log(response.data);
+		    if(response.data.mail!=null && response.data.user!=null){
+		    	
+		    	localStorage.setItem("Nombre de usuario", usuario);
+		    	localStorage.setItem("Nombre de colegio", colegio);
+		    	localStorage.setItem("Nombre", nombre);
+		    	localStorage.setItem("Apellido", apellido);
+		    	localStorage.setItem("colegio", colegio);
+		    	localStorage.setItem("mail", mail);
+		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
+	          	$http.post("http://127.0.0.1:18080/spal-server/rs/spal/update/",parameter).then(success, error);
+	          	function success(data) {
+	          		alert("Espera a un correo de verificación por parte del administador.");
+	        		console.log(data);
+	      		}
+		        function error(data) {
+	  				console.log("Error subiendo imagen");
+	    	    }
+		    }
+		 
+		    if(response.data.mail==null){
+		    	alert("Ya te enceuntras registrado bajo esta dirección de correo electrónico.");
+		    }
+		
+		    if(response.data.user==null){
+		    	alert("Ya hay un usuario con este mismo nombre de usuario.");
+		    }
+		}
+
+		function errorCallback(error){
+		    console.log(error);
+		}
+	}
+
 })
