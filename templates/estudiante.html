@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html ng-app="app">	
 	<body>
         <!--estudiante-->
@@ -17,7 +17,7 @@
 <body>
 	
 	<a class="regresar" href="#!/tutor">
-	    	<i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
+	    	<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
 	 </a>
 
 
@@ -26,6 +26,9 @@
 			<h2>Este es el progreso de tus estudiantes</h2>
 		</div>	
 
+		 <p style='font-weight: bolder;'>Buscar: <input type="text" ng-model="test"></p>
+		 <br>
+  		
 		<table class="w3-table" >
 		    <tr style='font-weight: bold;'>
 		      <th>Nombre</th>
@@ -34,7 +37,8 @@
 		      <th>Dificultad</th>
 		      <th></th>
 		    </tr>
-		    <tr ng-repeat="reporte in reportes">
+		    <tr ng-repeat="reporte in reportes |  filter : test">
+		    	
 		      <td placeholder="Nombre">{{reporte.nombre}}</td>
 		      <td placeholder="Palabra">{{reporte.palabra}}</td>
 		      <td placeholder="Respuesta">{{reporte.respuesta}}</td>

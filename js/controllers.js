@@ -356,6 +356,31 @@ app.controller("tutorController", function ($scope,$http,$route){
 	    	return (hash);
 		}
 
+	 $scope.imageUpload = function(event){
+    	 var preview=document.querySelector('img[id=foto]');
+         var file = document.querySelector('input[type=file]').files[0]; 
+         var reader = new FileReader();
+   		 var b;
+          reader.onload = $scope.imageIsLoaded=function(){
+          
+          	preview.src=reader.result;
+          	$scope.dir=document.getElementById("foto").getAttribute("src");
+
+          	
+
+          } 
+
+
+          if (file) {
+          	  reader.readAsDataURL(file); 
+          }
+          else{
+          	preview.src="";
+          }
+
+    }
+
+
 	$scope.agregar=function(){
 		 var nombre= document.getElementById("nombre").value;
 	     var apellido= document.getElementById("apellido").value;
@@ -370,11 +395,20 @@ app.controller("tutorController", function ($scope,$http,$route){
 		function successCallback(response){
 			console.log(response.data);
 		    if(response.data.user!=null){
-		    	alert("El estudiante fue agregado exitosamente.");
 		    
 		    	localStorage.setItem("Genero", genero);
 		    	localStorage.setItem("Nombre", nombre);
 		    	localStorage.setItem("Apellido", apellido);
+		    	localStorage.setItem("usuario", usuario);
+		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
+	          	$http.post("http://127.0.0.1:18080/spal-server/rs/spal/updatest/",parameter).then(success, error);
+	          	function success(data) {
+	          		alert("Insertado correctamente.");
+	        		console.log(data);
+	      		}
+		        function error(data) {
+	  				console.log("Error subiendo imagen");
+	    	    }
 		    }
 		
 		    if(response.data.user==null){
@@ -402,6 +436,15 @@ app.controller("estController", function ($scope, $http){
 		function errorCallback(error){
 		    console.log(error);
 		}
+
+		$scope.filterBySearch = function (item) {
+        return Object.keys($scope.search || {}).every(function (key) {
+            var value = $scope.search[key]; 
+            return (value === undefined) || 
+                   (value === null) ||
+                   value === item[key];
+        });
+    }
 
 	
 })
