@@ -80,9 +80,9 @@ app.controller("registroController", function ($scope,$http){
 		 var colegio= document.getElementById("colegio").value;
 		 var contras=$scope.hash(cont);
 		 
-		 //console.log('http://127.0.0.1:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
+		 //console.log('http://198.199.64.141:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
 		 
-		 $http.get('http://127.0.0.1:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
+		 $http.get('http://198.199.64.141:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
@@ -95,7 +95,7 @@ app.controller("registroController", function ($scope,$http){
 		    	localStorage.setItem("colegio", colegio);
 		    	localStorage.setItem("mail", mail);
 		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
-	          	$http.post("http://127.0.0.1:9081/spal-server/rs/spal/update/",parameter).then(success, error);
+	          	$http.post("http://198.199.64.141:9081/spal-server/rs/spal/update/",parameter).then(success, error);
 	          	function success(data) {
 	          		alert("Espera a un correo de verificación por parte del administador.");
 	        		console.log(data);
@@ -134,7 +134,7 @@ app.controller("ingresoController", function ($scope,$http){
 		var contra= document.getElementById("contra").value;
 		var contras=$scope.hash(contra);
 	
-		$http.get('http://127.0.0.1:9081/spal-server/rs/spal/login/?user='+usuario+'&pass='+contras).then(successCallback, errorCallback);
+		$http.get('http://198.199.64.141:9081/spal-server/rs/spal/login/?user='+usuario+'&pass='+contras).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -174,7 +174,7 @@ app.controller("contactoController", function ($scope, $http){
 		var asunto= document.getElementById("asunto").value;
 		var mensaje=document.getElementById("mensaje").value;;
 	
-		$http.get('http://127.0.0.1:9081/spal-server/rs/spal/contacto/?email='+email+'&asunto='+asunto+'&mensaje='+mensaje).then(successCallback, errorCallback);
+		$http.get('http://198.199.64.141:9081/spal-server/rs/spal/contacto/?email='+email+'&asunto='+asunto+'&mensaje='+mensaje).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -225,8 +225,8 @@ app.controller("inicioController", function ($scope){
 app.controller("tutorController", function ($scope,$http,$route){
 	
 	$scope.nombre=localStorage.getItem('Nombre de usuario');
-	//console.log('http://127.0.0.1:9081/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre);
-	$http.get('http://127.0.0.1:9081/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre).then(successCallback, errorCallback);
+	//console.log('http://198.199.64.141:9081/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre);
+	$http.get('http://198.199.64.141:9081/spal-server/rs/spal/estudiantes/?tutor='+$scope.nombre).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -261,7 +261,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 	
 	app.controller("adminController", function ($scope, $http){
 
-	$http.get('http://127.0.0.1:9081/spal-server/rs/spal/admin').then(successCallback, errorCallback);
+	$http.get('http://198.199.64.141:9081/spal-server/rs/spal/admin').then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -289,7 +289,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 	}
 
 	$scope.acceso=function(id, email){
-		$http.get('http://127.0.0.1:9081/spal-server/rs/spal/administrador/?id='+id+'&email='+email).then(successCallback, errorCallback);
+		$http.get('http://198.199.64.141:9081/spal-server/rs/spal/administrador/?id='+id+'&email='+email).then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    var nueva=[];
@@ -319,7 +319,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 
 	$scope.tutorRegistro=function(){
 		
-		$http.get('http://127.0.0.1:9081/spal-server/rs/spal/admin').then(successCallback, errorCallback);
+		$http.get('http://198.199.64.141:9081/spal-server/rs/spal/admin').then(successCallback, errorCallback);
 
 		function successCallback(response){
 		    console.log(response);
@@ -388,9 +388,9 @@ app.controller("tutorController", function ($scope,$http,$route){
 		 var cumple= document.getElementById("cumple").value;
 		 var genero= document.getElementById("genero").value;
 		
-		 //console.log('http://127.0.0.1:9081/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple);
+		 //console.log('http://198.199.64.141:9081/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple);
 		 
-		 $http.get('http://127.0.0.1:9081/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple).then(successCallback, errorCallback);
+		 $http.get('http://198.199.64.141:9081/spal-server/rs/spal/insertar/?nombre='+nombre+'&apellido='+apellido+'&user='+usuario+'&genero='+genero+'&cumple='+cumple).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
@@ -401,7 +401,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 		    	localStorage.setItem("Apellido", apellido);
 		    	localStorage.setItem("usuario", usuario);
 		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
-	          	$http.post("http://127.0.0.1:9081/spal-server/rs/spal/updatest/",parameter).then(success, error);
+	          	$http.post("http://198.199.64.141:9081/spal-server/rs/spal/updatest/",parameter).then(success, error);
 	          	function success(data) {
 	          		alert("Insertado correctamente.");
 	        		console.log(data);
@@ -425,7 +425,7 @@ app.controller("tutorController", function ($scope,$http,$route){
 
 app.controller("estController", function ($scope, $http){
 
-	 $http.get('http://127.0.0.1:9081/spal-server/rs/spal/reporte/?user='+localStorage.getItem('Nombre de usuario')).then(successCallback, errorCallback);
+	 $http.get('http://198.199.64.141:9081/spal-server/rs/spal/reporte/?user='+localStorage.getItem('Nombre de usuario')).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
@@ -454,9 +454,9 @@ app.controller("olvidoController", function ($scope, $http){
 	$scope.cambiar=function() {
 	     var mail= document.getElementById("email").value;
 		 var cont= document.getElementById("cont").value;
-		 console.log('http://127.0.0.1:9081/spal-server/rs/spal/cambio/?email='+mail+'&contra='+cont);
+		 console.log('http://198.199.64.141:9081/spal-server/rs/spal/cambio/?email='+mail+'&contra='+cont);
 		 
-		 $http.get('http://127.0.0.1:9081/spal-server/rs/spal/cambio/?email='+mail+'&contra='+cont).then(successCallback, errorCallback);
+		 $http.get('http://198.199.64.141:9081/spal-server/rs/spal/cambio/?email='+mail+'&contra='+cont).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
@@ -509,9 +509,9 @@ app.controller("nuevaController", function ($scope, $http){
 		 var colegio= document.getElementById("colegio").value;
 		 var contras=$scope.hash(cont);
 		 
-		 //console.log('http://127.0.0.1:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
+		 //console.log('http://198.199.64.141:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio+'&imagen='+imagen);
 		 
-		 $http.get('http://127.0.0.1:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
+		 $http.get('http://198.199.64.141:9081/spal-server/rs/spal/registro/?nombre='+nombre+'&apellido='+apellido+'&mail='+mail+'&user='+usuario+'&pass='+contras+'&colegio='+colegio).then(successCallback, errorCallback);
 
 		function successCallback(response){
 			console.log(response.data);
@@ -524,7 +524,7 @@ app.controller("nuevaController", function ($scope, $http){
 		    	localStorage.setItem("colegio", colegio);
 		    	localStorage.setItem("mail", mail);
 		    	var parameter = JSON.stringify({ima:$scope.dir,usu:usuario});
-	          	$http.post("http://127.0.0.1:9081/spal-server/rs/spal/update/",parameter).then(success, error);
+	          	$http.post("http://198.199.64.141:9081/spal-server/rs/spal/update/",parameter).then(success, error);
 	          	function success(data) {
 	          		alert("Espera a un correo de verificación por parte del administador.");
 	        		console.log(data);
